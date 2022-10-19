@@ -126,7 +126,30 @@
             dataType: 'JSON',
             success: function(result) {
                 
-                  
+                if(result==1){
+                        swal(
+                        'Successfully Registered!',
+                        'You clicked the button!',
+                        'success'
+                        )
+                }else if(result==2){
+                      swal({
+                      icon: 'error',
+                      title: 'Registration Failed',
+                      text: 'Something went wrong!',
+                      
+                      })
+                }else if(result==3){
+                            swal({
+                            title: 'Email Id already Exists',
+                            showClass: {
+                            popup: 'animate__animated animate__fadeInDown'
+                            },
+                            hideClass: {
+                            popup: 'animate__animated animate__fadeOutUp'
+                            }
+                            })
+                }
               
             },
             error: function() {
