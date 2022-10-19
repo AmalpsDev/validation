@@ -69,6 +69,7 @@
 
     
     function Register(){
+      
      var name=$('#name').val();
      var email=$('#emailid').val();
      var password1=$('#password1').val();
@@ -109,6 +110,29 @@
           }
       
      }
+     APP_URL ="{{ URL::to('/')}}";
+     $.ajax({
+            url: APP_URL + "/registration",
+            method: 'POST',
+            data: {
+                'action': 's',
+                'name':name,
+                'email':email,
+                'password1':password1,
+
+                
+                '_token': "{{ csrf_token() }}"
+            },
+            dataType: 'JSON',
+            success: function(result) {
+                
+                  
+              
+            },
+            error: function() {
+                swal("Failed!", "Something went wrong", "error");
+            }
+        });
 
      
     
